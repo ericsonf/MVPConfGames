@@ -1,0 +1,36 @@
+<h2>Novo Jogo</h2>
+<p>Cadastre aqui seu jogo.</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <form #f="ngForm" (ngSubmit)="Novo(f)">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" class="form-control" [(ngModel)]="jogo.nome" name="nome" required #nome="ngModel">
+          <div class="alert alert-danger" *ngIf="nome.touched && !nome.valid">Campo obrigatorio.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="lancamento">Lancamento</label>
+          <input type="text" id="lancamento" class="form-control" [(ngModel)]="jogo.lancamento" name="lancamento" required #lancamento="ngModel">
+          <div class="alert alert-danger" *ngIf="lancamento.touched && !lancamento.valid">Campo obrigatorio.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="console">Console</label>
+          <select id="console" class="form-control" [(ngModel)]="jogo.console" name="console" required #console="ngModel">
+            <option value="1">SNES</option>
+            <option value="2">Playstation</option>
+          </select>
+          <div class="alert alert-danger" *ngIf="console.touched && !console.valid">Campo obrigatorio.</div>
+        </div>
+        <div class="form-group">
+          <label for="imagem">Imagem</label>
+          <input type="file" id="imagem" name="imagem" class="form-control" (change)="fileChange($event)" accept=".jpeg,.jpg,.png">
+        </div>
+        <input type="submit" class="btn btn-primary" [disabled]="!f.valid" value="Cadastrar" />
+      </form>
+    </div>
+  </div>
+</div>

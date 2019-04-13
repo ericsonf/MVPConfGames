@@ -1,0 +1,17 @@
+<h1>Jogos</h1>
+
+<p>Os melhores jogos antigos, voce so encontra aqui!</p>
+
+<p *ngIf="!jogos"><em>Loading...</em></p>
+
+<div *ngIf="jogos">
+  <div *ngFor="let jogo of jogos">
+    <div class="card" style="width: 330px; float: left; margin: 15px;">
+      <img src="{{ jogo.imagem }}" alt="{{ jogo.nome }}" width="330" />
+      <div class="card-body">
+        <h5 class="card-title">{{ jogo.nome }}</h5>
+        <p class="card-text">Lancamento: <strong>{{ jogo.lancamento }}</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
